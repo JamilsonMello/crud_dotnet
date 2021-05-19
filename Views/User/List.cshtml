@@ -1,0 +1,31 @@
+@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>
+                    <a href="/User/Update?Id=@item.Id">Editar</a>
+                    <a href="/User/Delete?Id=@item.Id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @ViewBag.Message
+</div>
